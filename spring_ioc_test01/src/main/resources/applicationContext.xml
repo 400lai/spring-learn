@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置UserService Bean，由Spring IOC容器管理UserServiceImpl实例，并通过依赖注入设置userDao属性 -->
+    <bean id="userService" class="com.laiiiii.service.impl.UserServiceImpl">
+        <!-- 通过setter方法注入userDao依赖，ref指向id为userDao的Bean -->
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <!-- 配置UserDaoImpl Bean -->
+    <bean id="userDao" class="com.laiiiii.dao.impl.UserDaoImpl"></bean>
+
+</beans>
